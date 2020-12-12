@@ -12,11 +12,17 @@ def main():
     try:
         if (response[0]['secondsToArrival']) > 3600:
             print ("No bus arrivals in the next hour.")
+            result = "No bus arrivals in the next hour."
         else:
             mybus = response[0]['pattern']['name'] + ' - Minutes to Arrival: ' + str(round(response[0]['secondsToArrival'] / 60,0))
             print (mybus)
+            result = mybus
     except:
         print("There are no more bus arrivals today.")
+        result = "There are no more bus arrivals today."
+
+    return result
+
 
 
 if __name__ == '__main__':
